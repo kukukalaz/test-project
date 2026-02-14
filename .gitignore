@@ -1,0 +1,4 @@
+test-project/
+.git
+.clawhub/
+node_modules/
