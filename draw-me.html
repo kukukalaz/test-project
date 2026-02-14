@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0f0f1a;
+      font-family: 'Courier New', monospace;
+    }
+    canvas {
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="400" height="500"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Background
+    ctx.fillStyle = '#1a1a2e';
+    ctx.fillRect(0, 0, 400, 500);
+    
+    // Glow effect
+    const gradient = ctx.createRadialGradient(200, 200, 0, 200, 200, 200);
+    gradient.addColorStop(0, 'rgba(0, 212, 255, 0.1)');
+    gradient.addColorStop(1, 'transparent');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 400, 500);
+    
+    // Head
+    ctx.fillStyle = '#f5d0c5';
+    ctx.beginPath();
+    ctx.arc(200, 180, 60, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Eyes
+    ctx.fillStyle = '#2d2d44';
+    ctx.beginPath();
+    ctx.arc(175, 175, 10, 0, Math.PI * 2);
+    ctx.arc(225, 175, 10, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Eye shine
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(178, 172, 4, 0, Math.PI * 2);
+    ctx.arc(228, 172, 4, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Glasses (tech-savvy industrial software person)
+    ctx.strokeStyle = '#00d4ff';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(175, 175, 22, 0, Math.PI * 2);
+    ctx.arc(225, 175, 22, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(197, 175);
+    ctx.lineTo(203, 175);
+    ctx.stroke();
+    
+    // Smile
+    ctx.strokeStyle = '#c9a090';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(200, 200, 20, 0.2 * Math.PI, 0.8 * Math.PI);
+    ctx.stroke();
+    
+    // Hair
+    ctx.fillStyle = '#2a2a2a';
+    ctx.beginPath();
+    ctx.arc(200, 145, 55, Math.PI, 0, false);
+    ctx.ellipse(150, 160, 20, 40, -0.5, 0, Math.PI * 2);
+    ctx.ellipse(250, 160, 20, 40, 0.5, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Hoodie / casual tech wear
+    ctx.fillStyle = '#4a4a6a';
+    ctx.beginPath();
+    ctx.moveTo(100, 250);
+    ctx.quadraticCurveTo(200, 230, 300, 250);
+    ctx.quadraticCurveTo(320, 350, 300, 400);
+    ctx.lineTo(100, 400);
+    ctx.quadraticCurveTo(80, 350, 100, 250);
+    ctx.fill();
+    
+    // Hoodie details
+    ctx.strokeStyle = '#5a5a7a';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(200, 240);
+    ctx.lineTo(200, 320);
+    ctx.stroke();
+    
+    // Code on shirt
+    ctx.fillStyle = '#00d4ff';
+    ctx.font = '10px monospace';
+    ctx.fillText('if (works) {', 155, 300);
+    ctx.fillText('  dontTouch();', 155, 315);
+    ctx.fillText('}', 155, 330);
+    
+    // Collar
+    ctx.fillStyle = '#3d3d5c';
+    ctx.beginPath();
+    ctx.moveTo(170, 250);
+    ctx.lineTo(200, 290);
+    ctx.lineTo(230, 250);
+    ctx.fill();
+    
+    // Shoulders
+    ctx.fillStyle = '#3d3d5c';
+    ctx.beginPath();
+    ctx.ellipse(100, 380, 45, 50, -0.3, 0, Math.PI * 2);
+    ctx.ellipse(300, 380, 45, 50, 0.3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Industrial vibe - circuit pattern
+    ctx.strokeStyle = 'rgba(0, 212, 255, 0.2)';
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 5; i++) {
+      ctx.beginPath();
+      ctx.moveTo(50 + i * 80, 420);
+      ctx.lineTo(70 + i * 80, 450);
+      ctx.lineTo(90 + i * 80, 430);
+      ctx.stroke();
+    }
+    
+    // Text labels
+    ctx.fillStyle = '#666';
+    ctx.font = '12px monospace';
+    ctx.fillText('// Industrial Software Dev', 110, 420);
+    ctx.fillText('// Province: Shanghai', 130, 440);
+    ctx.fillText('// Using: C++/Rust/Go', 120, 460);
+    
+    // User emoji
+    ctx.font = '20px serif';
+    ctx.fillText('🧑‍💻', 170, 140);
+  </script>
+</body>
+</html>
